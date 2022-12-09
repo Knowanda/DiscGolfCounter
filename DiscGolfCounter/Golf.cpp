@@ -11,6 +11,7 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <stdlib.h>
 using namespace std;
 
 int holeCount;
@@ -121,6 +122,7 @@ int main()
 	for (int x = 0; x < holeCount; x++) {
 		scoreCard(holeCount, playerCount, nameList, playerScores);
 		playerScoresInput(playerCount, nameList, playerScores);
+		system("CLS");
 	}
 	scoreCard(holeCount, playerCount, nameList, playerScores);
 }
