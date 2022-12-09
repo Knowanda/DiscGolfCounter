@@ -24,10 +24,11 @@ void playerScoresInput(int playerCount, vector<string> nameList, map<int, vector
 	for (int i = 0; i < playerCount; i++)
 	{
 		
+		
 		cout << "\nWhat is " << nameList[i] << "'s score? ";
 		cin >> playerNumber;
 		playerScores[i].push_back(playerNumber);
-
+		
 	}
 }
 	
@@ -49,45 +50,46 @@ void scoreCard(int holeCount, int playerCount, vector<string> nameList, map<int,
 {	
 	for (int i = 0; i < playerCount; i++)
 	{
-		
-		cout << "\n| " << nameList[i] << " |\n";	// Prints name for score board
-
-		for (int x = holeCount; x > 0; x--)		// Prints top line for board
+	
+		for (int x = 1; x > 0; x--)
 		{
-			cout << "+";
-			for (int x = 3; x > 0; x--)
+			cout << "\n| " << nameList[i] << " |\n";	// Prints name for score board
+
+			for (int x = holeCount; x > 0; x--)		// Prints top line for board
 			{
-				cout << "-";
-			}
-		}
-		cout << "+\n";
-
-
-		for (auto& it : playerScores[i])
-		{
-
-			for (int x = holeCount; x > 0; x--)		// prints number for board
-			{
-				cout << "|";
-				for (int x = 1; x > 0; x--)
+				cout << "+";
+				for (int x = 3; x > 0; x--)
 				{
-				
-					cout << it;
-
+					cout << "-";
 				}
 			}
-		}
-		cout << "|\n";
+			cout << "+\n";
 
-		for (int x = holeCount; x > 0; x--)
-		{
-			cout << "+";
-			for (int x = 3; x > 0; x--)
+					// prints number for board
+			
+				
+			for (int x = 1; x > 0; x--)
 			{
-				cout << "-";
+				for (auto& it : playerScores[i])
+				{
+					cout << "| " << it << " ";
+				}
+			}	
+			
+			cout << "|\n";
+			
+
+			for (int x = holeCount; x > 0; x--)
+			{
+				cout << "+";
+				for (int x = 3; x > 0; x--)
+				{
+					cout << "-";
+				}
 			}
+			cout << "+";
 		}
-		cout << "+";
+		
 	}
 }
 
