@@ -10,14 +10,15 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <map>
 using namespace std;
 
 int holeCount;
 string playerName;
 vector<string> nameList;
-vector<int> playerScores;
+map<int, vector<int>> playerScores;
 
-void playerScoresInput(int playerCount, vector<string> nameList, vector<int> playerScores)
+void playerScoresInput(int playerCount, vector<string> nameList, map<int, vector<int>> &playerScores)
 {
 	int playerNumber;
 	for (int i = 0; i < playerCount; i++)
@@ -25,7 +26,7 @@ void playerScoresInput(int playerCount, vector<string> nameList, vector<int> pla
 		
 		cout << "\nWhat is " << nameList[i] << "'s score? ";
 		cin >> playerNumber;
-		playerScores.push_back(playerNumber);
+		playerScores[i].push_back(playerNumber);
 
 	}
 }
@@ -44,7 +45,7 @@ void nameFiles(string playerName)
 	
 }
 
-void scoreCard(int holeCount, int playerCount, vector<string> nameList, vector<int> playerScores)
+void scoreCard(int holeCount, int playerCount, vector<string> nameList, map<int, vector<int>> playerScores)
 {	
 	for (int i = 0; i < playerCount; i++)
 	{
@@ -62,7 +63,7 @@ void scoreCard(int holeCount, int playerCount, vector<string> nameList, vector<i
 		cout << "+\n";
 
 
-		for (auto& it : playerScores)
+		for (auto& it : playerScores[i])
 		{
 
 			for (int x = holeCount; x > 0; x--)		// prints number for board
