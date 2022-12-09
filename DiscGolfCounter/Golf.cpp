@@ -121,7 +121,7 @@ int main()
 	for (int x = 0; x < holeCount; x++) {
 		scoreCard(holeCount, playerCount, nameList, playerScores);
 		playerScoresInput(playerCount, nameList, playerScores);
-		scoreCard(holeCount, playerCount, nameList, playerScores);
 	}
+	scoreCard(holeCount, playerCount, nameList, playerScores);
 }
 
